@@ -3,35 +3,91 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-html, body {
-  height: 100%; }
+.hourglass {
+  height: 50px;
+  width: 25px;
+  background-color: black;
+  background-image: -webkit-linear-gradient(bottom, blue, blue);
+  background-image: linear-gradient(to top, blue, blue);
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 50%;
+  margin-left: -12.5px;
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  -webkit-animation: foo 10s linear infinite;
+  animation: foo 10s linear infinite; }
+  .hourglass:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    border-left: 12.5px solid white; }
+  .hourglass:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    border-right: 12.5px solid white; }
 
-body {
-  display: -webkit-flex;
-  -webkit-align-items: stretch; }
+@-webkit-keyframes foo {
+  0% {
+    background-position: 0 50px; }
 
-h1 {
-  zoom: 1;
+  25% {
+    background-position: 0 0;
+    -webkit-transform: rotate(0); }
+
+  50% {
+    background-position: 0 0;
+    -webkit-transform: rotate(180deg); }
+
+  75% {
+    background-position: 0 -50px;
+    -webkit-transform: rotate(180deg); }
+
+  100% {
+    background-position: 0 -50px;
+    -webkit-transform: rotate(0); } }
+
+@keyframes foo {
+  0% {
+    background-position: 0 50px; }
+
+  25% {
+    background-position: 0 0;
+    transform: rotate(0); }
+
+  50% {
+    background-position: 0 0;
+    transform: rotate(180deg); }
+
+  75% {
+    background-position: 0 -50px;
+    transform: rotate(180deg); }
+
+  100% {
+    background-position: 0 -50px;
+    transform: rotate(0); } }
+
+p {
   margin: 0;
-  font-size: 3rem;
-  width: 100%;
-  display: -webkit-flex;
-  -webkit-justify-content: space-between;
-  position: relative; }
-  h1:before, h1:after {
-    content: "";
-    display: table; }
-  h1:after {
-    clear: both; }
-  h1 span {
-    text-align: center;
-    line-height: 100vh;
-    -webkit-flex: 1;
-    color: white;
-    -webkit-transition: .2s; }
-    h1 span:hover {
-      -webkit-flex: 2; }
-    h1 span:nth-child(odd) {
-      background: #bfbfbf; }
-    h1 span:nth-child(even) {
-      background: #404040; }
+  text-align: center;
+  height: 20px;
+  width: 120px;
+  line-height: 20px;
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  position: absolute;
+  left: 50%;
+  margin-left: -60px;
+  -webkit-transform: translateY(50px);
+  transform: translateY(50px); }

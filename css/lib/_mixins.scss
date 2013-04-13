@@ -22,10 +22,16 @@
 }
 
 // absolutely position an element in the center
-@mixin absolute_position_centering($width) {
+@mixin absolute_position_centering_h($width) {
   position: absolute;
   left: 50%;
   margin-left: -$width / 2;
+}
+// absolutely position an element in the center
+@mixin absolute_position_centering_v($height) {
+  position: absolute;
+  top: 50%;
+  margin-top: -$height / 2;
 }
 
 // Make a pseudo element absolutely positioned
