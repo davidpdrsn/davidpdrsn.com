@@ -1,7 +1,12 @@
 $(function(){
 
-  var app = new App();
+  var text = "waitforit...".split('');
 
-  app.greet();
+  text.forEach(function(letter, i){
+    var className = "char-" + i,
+        markup = "<span class=\"" + className + "\">" + letter + "</span>";
+
+    $('h1').append(markup);
+  });
 
 });

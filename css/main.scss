@@ -1,6 +1,42 @@
 @import "lib/imports";
 
 * {
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: -webkit-flex;
+  -webkit-align-items: stretch;
+}
+
+h1 {
+  @include clearfix;
+  margin: 0;
+  font-size: 3rem;
+  width: 100%;
+  display: -webkit-flex;
+  -webkit-justify-content: space-between;
+  position: relative;
+  span {
+    text-align: center;
+    line-height: 100vh;
+    -webkit-flex: 1;
+    color: white;
+    -webkit-transition: .2s;
+    &:hover {
+      -webkit-flex: 2;
+    }
+    &:nth-child(odd) {
+      background: darken(white, 25%);
+    }
+    &:nth-child(even) {
+      background: darken(white, 75%);
+    }
+  }
 }
