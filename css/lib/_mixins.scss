@@ -175,29 +175,34 @@
   color: transparent;
 }
 
-@mixin triangle($dir: 'up', $size: 10px, $color: black, $ratio: 1) {
+@mixin arrow($width: 20px, $height: 20px, $direction: up, $color: red) {
   width: 0;
   height: 0;
-  @if $dir == 'up' {
-    border-bottom: $size solid $color;
-    border-left: ($size/2*$ratio) solid transparent;
-    border-right: ($size/2*$ratio) solid transparent;
-  } @else if $dir == 'down' {
-    border-top: $size solid $color;
-    border-left: ($size/2*$ratio) solid transparent;
-    border-right: ($size/2*$ratio) solid transparent;
-  } @else if $dir == 'left' {
-    border-top: ($size/2*$ratio) solid transparent;
-    border-right: $size solid $color;
-    border-bottom: ($size/2*$ratio) solid transparent;
-  } @else if $dir == 'right' {
-    border-top: ($size/2*$ratio) solid transparent;
-    border-left: $size solid $color;
-    border-bottom: ($size/2*$ratio) solid transparent;
+  // Right
+  @if $direction == right {
+    border-top: $height / 2 solid transparent;
+    border-bottom: $height / 2 solid transparent;
+    border-left: $width solid $color;
+  }
+  // Left
+  @if $direction == left {
+    border-top: $height / 2 solid transparent;
+    border-bottom: $height / 2 solid transparent;
+    border-right: $width solid $color;
+  }
+  // Up
+  @if $direction == up {
+    border-left: $width / 2 solid transparent;
+    border-right: $width / 2 solid transparent;
+    border-bottom: $height solid $color;
+  }
+  // Down
+  @if $direction == down {
+    border-left: $width / 2 solid transparent;
+    border-right: $width / 2 solid transparent;
+    border-top: $height solid $color;
   }
 }
-
-// TODO: Make triangles in top left etc.
 
 
 //////////////////////////////////////

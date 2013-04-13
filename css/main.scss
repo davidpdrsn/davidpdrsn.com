@@ -6,45 +6,22 @@
   box-sizing: border-box;
 }
 
-@mixin arrow($width: 20px, $height: 20px, $direction: up, $color: red) {
-  width: 0;
-  height: 0;
-  // Right
-  @if $direction == right {
-    border-top: $height / 2 solid transparent;
-    border-bottom: $height / 2 solid transparent;
-    border-left: $width solid $color;
-  }
-  // Left
-  @if $direction == left {
-    border-top: $height / 2 solid transparent;
-    border-bottom: $height / 2 solid transparent;
-    border-right: $width solid $color;
-  }
-  // Up
-  @if $direction == up {
-    border-left: $width / 2 solid transparent;
-    border-right: $width / 2 solid transparent;
-    border-bottom: $height solid $color;
-  }
-  // Down
-  @if $direction == down {
-    border-left: $width / 2 solid transparent;
-    border-right: $width / 2 solid transparent;
-    border-top: $height solid $color;
-  }
+body {
+  background: black;
 }
 
 $h: 50px;
 $w: 25px;
 
+$color: red;
+
 .hourglass {
   height: $h;
   width: $w;
 
-  background-color: black;
-  background-image: -webkit-linear-gradient(bottom, blue, blue);
-  background-image: linear-gradient(to top, blue, blue);
+  background-color: white;
+  background-image: -webkit-linear-gradient(bottom, $color, $color);
+  background-image: linear-gradient(to top, $color, $color);
   background-repeat: no-repeat;
 
   @include absolute_position_centering_h($w);
@@ -54,13 +31,13 @@ $w: 25px;
     content: '';
     position: absolute;
     left: 0;
-    @include arrow($w/2, $h, right, white);
+    @include arrow($w/2 - 1px, $h, right, black);
   }
   &:after {
     content: '';
     position: absolute;
     right: 0;
-    @include arrow($w/2, $h, left, white);
+    @include arrow($w/2 - 1px, $h, left, black);
   }
 
   -webkit-animation: foo 10s linear infinite;
@@ -113,6 +90,7 @@ $w: 25px;
 p {
   margin: 0;
   text-align: center;
+  color: white;
   $h: 20px;
   $w: 120px;
   height: $h;
